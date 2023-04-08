@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 const { Component } = require("react");
 
 class Section extends Component {
@@ -13,5 +14,10 @@ class Section extends Component {
     );
   }
 };
+
+Section.propTypes = {
+  title: PropTypes.string.isRequired,
+  children: PropTypes.node,
+}
 
 export default Section;

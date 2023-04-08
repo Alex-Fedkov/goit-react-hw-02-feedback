@@ -1,4 +1,5 @@
-import { StatsList, Label } from "./styles.jsx";
+import PropTypes from "prop-types";
+import { StatsList, Label } from "./style.jsx";
 
 const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
   return (
@@ -7,9 +8,17 @@ const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
       <StatsList>Neutral: <Label>{neutral}</Label></StatsList>
       <StatsList>Bad: <Label>{bad}</Label></StatsList>
       <StatsList>Total: <Label>{total}</Label></StatsList>
-      <StatsList>Positive Percentage: <Label>{positivePercentage}</Label></StatsList>
+      <StatsList>Positive Percentage: <Label>{positivePercentage}</Label>%</StatsList>
     </div>
   );
 };
+
+Statistics.prototype = {
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
+  positivePercentage: PropTypes.number.isRequired
+}
 
 export default Statistics;
